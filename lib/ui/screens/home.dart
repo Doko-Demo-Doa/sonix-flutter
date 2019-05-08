@@ -5,9 +5,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var child;
-    return Container(
-      child: child,
+    return Scaffold(
+      appBar: AppBar(title: Text('Sonix')),
     );
   }
 }
