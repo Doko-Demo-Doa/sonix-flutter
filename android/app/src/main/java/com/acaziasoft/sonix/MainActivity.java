@@ -1,4 +1,4 @@
-package com.example.sonix;
+package com.acaziasoft.sonix;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
