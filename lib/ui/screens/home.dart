@@ -9,10 +9,12 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    ApiPost.getRecentPosts(1, 30)
-      .then((values) => {
-        print(values[0].title)
+    ApiPost.getRecentPosts(1, 30).then((values) {
+      print(values[0].title);
+      this.setState(() {
+        postList = values;
       });
+    });
   }
 
   @override
@@ -40,12 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisCount: 2),
                     delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                      return PostGridItem(
-                          name: 'name$index',
-                          place: 'place$index',
-                          date: 'date',
-                          called: true);
-                    }),
+                      return GestureDetector(
+                          onTap: () {
+                            // Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) => HomeScreen()));
+                          },
+                          child: PostGridItem(
+                              name: 'name$index',
+                              place: 'place$index',
+                              date: 'date',
+                              called: true));
+                    }, childCount: postList.length), // Number of items.
                   ),
                 ),
               ],
