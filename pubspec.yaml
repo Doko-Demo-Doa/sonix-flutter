@@ -26,6 +26,7 @@ dependencies:
   http:
   dio:
   font_awesome_flutter:
+  provider:
 
 dev_dependencies:
   flutter_test:

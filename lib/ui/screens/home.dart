@@ -26,7 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     previousPageTitle: 'Cupertino',
                     trailing: Icon(Icons.search)),
                 CupertinoSliverRefreshControl(
-                  onRefresh: () {},
+                  onRefresh: () {
+                    
+                  },
                 ),
                 SliverSafeArea(
                   top: false,
