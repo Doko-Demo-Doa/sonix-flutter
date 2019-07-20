@@ -1,16 +1,26 @@
+import 'dart:convert';
+
 class Post {
   int id;
-  int guid;
   String title;
   String excerpt;
 
-  Post.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        guid = json['guid'],
-        title = json['title']['rendered'],
-        excerpt = json['excerpt']['rendered'];
+  Post({this.id, this.title, this.excerpt});
+
+  static List<Post> fromJsonArray(String jsonArray) {
+    Iterable rawList = json.decode(jsonArray);
+    return rawList.map((p) => Post.fromJson(p)).toList();
+  }
+
+  factory Post.fromJson(dynamic json) {
+    return new Post(
+      id: json['id'],
+      title: json['title'],
+      excerpt: json['excerpt'],
+    );
+  }
 
   Map<String, dynamic> toJson() => {
-    'id': id, 'guid': guid, 'title': title, 'excerpt': excerpt
+    'id': id, 'title': title, 'excerpt': excerpt
   };
 }

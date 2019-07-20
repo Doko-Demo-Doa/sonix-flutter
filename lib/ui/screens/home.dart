@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sonix/api/api_post.dart';
 import '../widgets/post_item.dart' show PostGridItem;
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -8,6 +9,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    ApiPost.getRecentPosts(1, 30)
+      .then((values) => {
+        print(values[0].title)
+      });
   }
 
   @override

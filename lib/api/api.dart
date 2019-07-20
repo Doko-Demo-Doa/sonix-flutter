@@ -12,8 +12,7 @@ class ApiClient {
 
   static Dio _httpClient = new Dio(options);
 
-  static Future getUrl(String endpoint) async {
-    Response response = await _httpClient.get(endpoint);
-    return response;
+  static Future<Response> getUrl(String endpoint) {
+    return _httpClient.get(endpoint);
   }
 }
