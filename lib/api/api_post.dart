@@ -12,7 +12,8 @@ class ApiPost {
           results.add(new Post(
               id: json['id'],
               title: json['title']['rendered'],
-              excerpt: json['excerpt']['rendered']))
+              excerpt: json['excerpt']['rendered'],
+              image: json['jetpack_featured_media_url']))
         });
     return results;
   }

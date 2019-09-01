@@ -1,16 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sonix/api/api_post.dart';
+import 'package:sonix/models/post.dart';
+import 'package:sonix/ui/screens/post_detail.dart';
 import '../widgets/post_item.dart' show PostGridItem;
 
 class _HomeScreenState extends State<HomeScreen> {
-  List postList = List();
+  List<Post> postList = List();
 
   @override
   void initState() {
     super.initState();
     ApiPost.getRecentPosts(1, 30).then((values) {
-      print(values[0].title);
+      print(values[0].image);
       this.setState(() {
         postList = values;
       });
@@ -44,11 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         (BuildContext context, int index) {
                       return GestureDetector(
                           onTap: () {
-                            // Navigator.of(context).push(CupertinoPageRoute(builder: (ctx) => HomeScreen()));
+                            Navigator.of(context).push(CupertinoPageRoute(
+                                builder: (ctx) => PostDetail()));
                           },
                           child: PostGridItem(
                               name: 'name$index',
-                              place: 'place$index',
+                              image: postList[index].image,
                               date: 'date',
                               called: true));
                     }, childCount: postList.length), // Number of items.

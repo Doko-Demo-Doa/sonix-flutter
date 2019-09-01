@@ -4,8 +4,9 @@ class Post {
   int id;
   String title;
   String excerpt;
+  String image;
 
-  Post({this.id, this.title, this.excerpt});
+  Post({this.id, this.title, this.excerpt, this.image});
 
   static List<Post> fromJsonArray(String jsonArray) {
     Iterable rawList = json.decode(jsonArray);
@@ -17,10 +18,11 @@ class Post {
       id: json['id'],
       title: json['title'],
       excerpt: json['excerpt'],
+      image: json['jetpack_featured_media_url']
     );
   }
 
   Map<String, dynamic> toJson() => {
-    'id': id, 'title': title, 'excerpt': excerpt
+    'id': id, 'title': title, 'excerpt': excerpt, 'jetpack_featured_media_url': image
   };
 }

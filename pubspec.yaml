@@ -27,6 +27,7 @@ dependencies:
   dio:
   font_awesome_flutter:
   provider: ^3.1.0
+  cached_network_image:
 
 dev_dependencies:
   flutter_test:
