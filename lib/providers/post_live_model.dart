@@ -2,8 +2,9 @@ import 'package:flutter/widgets.dart';
 import 'package:sonix/api/api_post.dart';
 import 'package:sonix/models/post.dart';
 
-class PostProvider with ChangeNotifier {
-  List<Post> _posts;
+/// Post live model
+class PostLiveModel with ChangeNotifier {
+  List<Post> _posts = [];
 
   getPosts() => _posts;
 
