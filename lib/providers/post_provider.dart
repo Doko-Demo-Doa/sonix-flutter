@@ -12,4 +12,3 @@ class PostProvider with ChangeNotifier {
     
   }
 }
-
