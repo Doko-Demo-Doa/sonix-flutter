@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:html_unescape/html_unescape_small.dart';
 import 'package:sonix/api/api_post.dart';
 import 'package:sonix/models/post.dart';
 import 'package:sonix/ui/screens/post_detail.dart';
@@ -20,6 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var unescape = new HtmlUnescape();
+
     return CupertinoPageScaffold(
       child: DecoratedBox(
           decoration: const BoxDecoration(color: Color(0xFFEFEFF4)),
@@ -49,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (ctx) => PostDetail()));
                           },
                           child: PostGridItem(
-                              name: postList[index].title,
+                              name: unescape.convert(postList[index].title),
                               image: postList[index].image,
                               date: 'date',
                               called: true));
