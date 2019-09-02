@@ -12,7 +12,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     ApiPost.getRecentPosts(1, 30).then((values) {
-      print(values[0].image);
       this.setState(() {
         postList = values;
       });
@@ -50,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 builder: (ctx) => PostDetail()));
                           },
                           child: PostGridItem(
-                              name: 'name$index',
+                              name: postList[index].title,
                               image: postList[index].image,
                               date: 'date',
                               called: true));
