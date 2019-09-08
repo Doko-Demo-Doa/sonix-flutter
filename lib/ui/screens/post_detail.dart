@@ -12,7 +12,10 @@ class PostDetail extends StatelessWidget {
         middle: Text('Nav'),
       ),
       backgroundColor: Colors.white,
-      child: Text('Test'),
+      child: Container(
+        decoration: BoxDecoration(color: Colors.yellow),
+      ),
+      
     );
   }
 }
