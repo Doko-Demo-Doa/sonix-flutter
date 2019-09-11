@@ -9,15 +9,11 @@ const DUMMY_IMAGE =
 class PostGridItem extends StatelessWidget {
   const PostGridItem({
     this.name,
-    this.image,
-    this.date,
-    this.called,
+    this.image
   });
 
   final String name;
   final String image;
-  final String date;
-  final bool called;
 
   @override
   Widget build(BuildContext context) {

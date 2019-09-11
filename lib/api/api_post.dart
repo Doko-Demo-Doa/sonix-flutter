@@ -13,6 +13,7 @@ class ApiPost {
               id: json['id'],
               title: json['title']['rendered'],
               excerpt: json['excerpt']['rendered'],
+              content: json['content']['rendered'],
               image: json['jetpack_featured_media_url']))
         });
     return results;

@@ -46,16 +46,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         crossAxisCount: 2),
                     delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
+                      final String pTitle =
+                          unescape.convert(postList[index].title);
+                      final String pImage = postList[index].image;
+                      final String pContent = postList[index].excerpt;
+
                       return GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(CupertinoPageRoute(
-                                builder: (ctx) => PostDetail()));
+                                builder: (ctx) => PostDetail(pTitle, pImage, pContent)));
                           },
                           child: PostGridItem(
-                              name: unescape.convert(postList[index].title),
-                              image: postList[index].image,
-                              date: 'date',
-                              called: true));
+                              name: pTitle,
+                              image: pImage));
                     }, childCount: postList.length), // Number of items.
                   ),
                 ),
